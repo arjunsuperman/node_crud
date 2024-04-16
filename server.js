@@ -21,9 +21,8 @@ app.get('/',function(req,res){
     res.send("Welcome to the Company Landing Page...")
 });
 
-const PORT = 3026;
-// const PORT = process.env.PORT || 3000;
-// console.log(process.env.PORT)
+const PORT = process.env.PORT || 3000;
+// console.log(PORT)
 app.listen(PORT,() => {
     console.log(`Server started on http://localhost:${PORT}`);
   });

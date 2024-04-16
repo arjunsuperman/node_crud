@@ -1,10 +1,16 @@
 const mongoose = require('mongoose');
 
-const databaseName = "company";
+const dotenv        = require('dotenv');
+dotenv.config(); // load env variables
+
+// const databaseName = "company";
+// const databaseName = process.env.DATABASE_NAME;
 
 // MongoDB Atlas connection URL
 // const url = 'mongodb+srv://arjun:Gm2qZA6WziDC9iIt@cluster0.yjx1zqi.mongodb.net/'+databaseName;
-const url = 'mongodb+srv://arjun:Gm2qZA6WziDC9iIt@cluster0.yjx1zqi.mongodb.net/'+databaseName;
+// const url = process.env.DB_URL+process.env.DATABASE_NAME;
+// console.log(process.env.DB_URL);
+
 
 // Database connect
 // mongoose.connect(url);
@@ -33,7 +39,7 @@ const url = 'mongodb+srv://arjun:Gm2qZA6WziDC9iIt@cluster0.yjx1zqi.mongodb.net/'
 
 const connectDB = () => {
   mongoose
-    .connect("mongodb+srv://arjun:Gm2qZA6WziDC9iIt@cluster0.yjx1zqi.mongodb.net/", { dbName: "company" })
+    .connect(process.env.DB_URL+process.env.DATABASE_NAME )
     .then((data) => console.log(`Connected to DB: ${data.connection.host}`))
     .catch((err) => {
       throw err;
